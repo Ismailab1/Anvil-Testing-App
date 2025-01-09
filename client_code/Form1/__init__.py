@@ -26,7 +26,6 @@ class Form1(Form1Template):
         self.email_box.text = ""
         self.feedback_box.text = ""
 
-@anvil.server.callable
 def send_feedback(name, email, feedback):
     """
     Server-side function to send an email when feedback is submitted
