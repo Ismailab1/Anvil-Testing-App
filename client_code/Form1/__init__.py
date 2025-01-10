@@ -1,5 +1,8 @@
 from ._anvil_designer import Form1Template
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.server
 import anvil.email  # Ensure you have this if you're sending emails
 
@@ -25,20 +28,3 @@ class Form1(Form1Template):
         self.name_box.text = ""
         self.email_box.text = ""
         self.feedback_box.text = ""
-
-def send_feedback(name, email, feedback):
-    """
-    Server-side function to send an email when feedback is submitted
-    """
-    anvil.email.send(
-        to="noreply@anvil.works",  # Replace with your actual email address
-        subject=f"Feedback from {name}",
-        text=f"""
-A new person has filled out the feedback form!
-
-Name: {name}
-Email address: {email}
-Feedback:
-{feedback}
-"""
-    )
